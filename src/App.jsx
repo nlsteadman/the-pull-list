@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from "./components/navigation/Navbar";
 import Home from "./components/static/Home";
@@ -6,12 +7,19 @@ import ComicForm from "./components/comics/ComicForm";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
+  const [comics, setComics] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:9292/comics')
+    .then(r => r.json())
+    .then(data => setComics(data))
+  }, [])
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="/comics" element={ <ComicList />} />
+        <Route path="/comics" element={ <ComicList comics = { comics } />} />
         <Route path="/comics/new" element={ <ComicForm />} />
       </Routes>
     </Router>
