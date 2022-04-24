@@ -22,6 +22,10 @@ const App = () => {
     setComics([...comics, comic]);
   }
 
+  const deleteComic = comic => {
+    setComics(comics.filter(c => c.id !== comic.id))
+  }
+
   const addErrors = errors => {
     setErrors(errors);
   }
@@ -36,7 +40,7 @@ const App = () => {
       <ErrorList errors={ errors } /> 
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="/comics" element={ <ComicList comics = { comics } />} />
+        <Route path="/comics" element={ <ComicList comics = { comics } deleteComic={ deleteComic} />} />
         <Route path="/comics/new" element={ <ComicForm addComic={ addComic } addErrors={ addErrors } clearErrors={ clearErrors } />} />
       </Routes>
     </Router>

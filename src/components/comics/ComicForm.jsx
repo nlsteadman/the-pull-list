@@ -14,7 +14,7 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
         return () => {
             clearErrors();
         }
-    }, []) 
+    }, [])
 
     const handleSubmit = e => {
         e.preventDefault();

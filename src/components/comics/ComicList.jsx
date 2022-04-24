@@ -1,9 +1,9 @@
 import React from 'react';
 import ComicCard from './ComicCard';
 
-const ComicList = ({comics}) => {
+const ComicList = ({comics, deleteComic}) => {
 
-    const comicCards = comics.map(comic => <ComicCard comic={ comic } key={ comic.id } />)
+    const comicCards = comics.map(comic => <ComicCard comic={ comic } key={ comic.id } deleteComic={ deleteComic }/>)
   return (
     <div>
         <h1>Comic List</h1>
