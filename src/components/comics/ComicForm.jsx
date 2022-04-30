@@ -7,6 +7,10 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [publisher, setPublisher] = useState("");
+    const [genre, setGenre] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    const [price, setPrice] = useState("");
+    const [rating, setRating] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,7 +26,9 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
             comic: {
                 name: name,
                 publisher: publisher,
-                description: description
+                description: description,
+                genre: genre,
+                imageUrl: imageUrl
             }
         }
         fetch(baseUrl + "/comics", {
@@ -57,6 +63,22 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
             <div>
                 <label htmlFor="publisher">Publisher: </label>
                 <input type="text" name="publisher" id="publisher" value={ publisher } onChange={ e => setPublisher(e.target.value) } />
+            </div>
+            <div>
+                <label htmlFor="genre">Genre: </label>
+                <input type="text" name="genre" id="genre" value={ genre } onChange={ e => setGenre(e.target.value) } />
+            </div>
+            <div>
+                <label htmlFor="imageUrl">Image URL: </label>
+                <input type="text" name="imageUrl" id="imageUrl" value={ imageUrl } onChange={ e => setImageUrl(e.target.value) } />
+            </div>
+            <div>
+                <label htmlFor="price">Price: </label>
+                <input type="text" name="price" id="price" value={ price } onChange={ e => setPrice(e.target.value) } />
+            </div>
+            <div>
+                <label htmlFor="rating">Age Rating: </label>
+                <input type="text" name="rating" id="rating" value={ rating } onChange={ e => setRating(e.target.value) } />
             </div>
             <br />
             <input type="submit" value="Create Comic" />
