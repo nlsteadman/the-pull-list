@@ -28,7 +28,9 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
                 publisher: publisher,
                 description: description,
                 genre: genre,
-                imageUrl: imageUrl
+                imageUrl: imageUrl,
+                price: price,
+                rating: rating
             }
         }
         fetch(baseUrl + "/comics", {
