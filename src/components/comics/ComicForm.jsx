@@ -8,31 +8,33 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
     const [description, setDescription] = useState("");
     const [publisher, setPublisher] = useState("");
     const [genre, setGenre] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    const [image, setImage] = useState("");
     const [price, setPrice] = useState("");
     const [rating, setRating] = useState("");
+    
 
     const navigate = useNavigate();
 
     useEffect(() => {
         return () => {
             clearErrors();
-        }
+        };
     }, [])
 
     const handleSubmit = e => {
         e.preventDefault();
         const params = {
             comic: {
-                name: name,
-                publisher: publisher,
-                description: description,
-                genre: genre,
-                imageUrl: imageUrl,
-                price: price,
-                rating: rating
+                name,
+                publisher,
+                description,
+                genre,
+                image_url: image,
+                price,
+                rating
             }
         }
+
         fetch(baseUrl + "/comics", {
             method: "POST",
             headers,
@@ -51,33 +53,33 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
 
   return (
     <div>
-        <h1>Comic Form</h1>
+        <h1>Add New Comic: </h1>
 
-        <form onSubmit={ handleSubmit }>
+        <form id="create-comic-form" onSubmit={ handleSubmit }>
             <div>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" id="name" value={ name } onChange={ e => setName(e.target.value) } />
-            </div>
+            </div><br/>
             <div>
                 <label htmlFor="description">Description: </label><br />
                 <textarea name="description" id="description" cols="30" rows="10" value={ description } onChange={ e => setDescription(e.target.value) }></textarea>
-            </div>
+            </div><br/>
             <div>
                 <label htmlFor="publisher">Publisher: </label>
                 <input type="text" name="publisher" id="publisher" value={ publisher } onChange={ e => setPublisher(e.target.value) } />
-            </div>
+            </div><br/>
             <div>
                 <label htmlFor="genre">Genre: </label>
                 <input type="text" name="genre" id="genre" value={ genre } onChange={ e => setGenre(e.target.value) } />
-            </div>
+            </div><br/>
             <div>
-                <label htmlFor="imageUrl">Image URL: </label>
-                <input type="text" name="imageUrl" id="imageUrl" value={ imageUrl } onChange={ e => setImageUrl(e.target.value) } />
-            </div>
+                <label htmlFor="image_url">Image URL: </label>
+                <input type="text" name="image_url" id="image_url" value={ image } onChange={ e => setImage(e.target.value) } />
+            </div><br/>
             <div>
                 <label htmlFor="price">Price: </label>
                 <input type="text" name="price" id="price" value={ price } onChange={ e => setPrice(e.target.value) } />
-            </div>
+            </div><br/>
             <div>
                 <label htmlFor="rating">Age Rating: </label>
                 <input type="text" name="rating" id="rating" value={ rating } onChange={ e => setRating(e.target.value) } />

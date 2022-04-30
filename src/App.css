@@ -1,6 +1,32 @@
 .App {
   text-align: center;
 }
+.comic-info {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {width: 50%}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+h1 {
+  margin-left: 40px;
+}
+
+h3 {
+  margin-left: 40px;
+}
+
+form#create-comic-form {
+  margin-left: 50px;
+  margin-right: auto;
+  width: 8em;
+}
 
 .App-logo {
   height: 40vmin;

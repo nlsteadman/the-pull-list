@@ -3,12 +3,10 @@ import React from 'react';
 const ComicInfo = ({ comic }) => {
   return (
     <div>
-        <h2>{ comic.name }</h2>
-        <p>{ comic.publisher }</p>
-        <p>{ comic.description }</p>
-        <p>{ comic.genre }</p>
-        <p>{ comic.price }</p>
-        <p>{ comic.rating }</p>
+        <p>Description: { comic.description }</p>
+        <p>Genre: { comic.genre }</p>
+        <p>Age Rating: { comic.rating }</p>
+        <p>Price: ${ comic.price }</p>
     </div>
   )
 }
