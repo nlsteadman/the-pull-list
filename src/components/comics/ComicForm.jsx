@@ -53,7 +53,7 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
 
   return (
     <div>
-        <h1>Add New Comic: </h1>
+        <h1>Add New Comic</h1>
 
         <form id="create-comic-form" onSubmit={ handleSubmit }>
             <div>

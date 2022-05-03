@@ -2,12 +2,65 @@
   text-align: center;
 }
 #comic-info {
+  text-align: center;
   width: 320px;
+  height: 600px;
   background: ghostwhite; 
   font-size: 20px; 
-  padding: 10px; 
   border: 1px solid lightgray; 
-  margin: 10px;
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 5%;
+  outline: rgb(17, 215, 241) solid thick;
+  transition: 0.75s;
+  opacity: 1;
+}
+
+h1 {
+  color: rgb(41, 241, 178);
+  outline: rgb(17, 215, 241) dotted thick;
+  font-size: 80px;
+  text-align: center;
+}
+
+ul#nav {
+  /* list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  border: 1px solid #555;
+  display: inline; */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li a {
+  display: block;
+  color: rgb(41, 241, 178);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: rgb(17, 215, 241);
+  color: white;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+li:last-child {
+  border-bottom: none;
 }
 
 img {width: 50%}
@@ -22,16 +75,16 @@ li {
 }
 
 h1 {
-  margin-left: 40px;
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h2 {
+  margin-left: 10px;
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h3 {
-  margin-left: 40px;
+  margin-left: 10px;
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -45,22 +98,27 @@ form#create-comic-form {
   width: 8em;
 }
 
+form#create-user-form {
+  margin-left: 50px;
+  margin-right: auto;
+  width: 8em;
+}
+
 #user-card {
-  width: 320px;
-  padding: 10px;
-  border: 5px solid gray;
-  margin: 0;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-.column {
-  flex: 50%;
-  padding: 0 4px;
+  width: 450px;
+  height: 275px;
+  background: ghostwhite; 
+  font-size: 20px; 
+  border: 1px solid lightgray; 
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 5%;
+  outline: rgb(17, 215, 241) solid thick;
+  transition: 0.75s;
+  opacity: 1;
 }
 
 .App-logo {

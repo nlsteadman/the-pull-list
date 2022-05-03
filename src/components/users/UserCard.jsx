@@ -18,6 +18,7 @@ const UserCard = ({ user, deleteUser }) => {
     <div>
         <div key={ user.id } id="user-card">
             <h2>{ user.name }</h2>
+            <h3>User ID: { user.id }</h3>
             <p>{ user.address }</p>
             <p>{ user.phone_number }</p>
             <p>{ user.email }</p>

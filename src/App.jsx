@@ -40,7 +40,7 @@ const App = () => {
   }
 
   const deleteUser = user => {
-    setUsers(users.filter(u => u.id != user.id))
+    setUsers(users.filter(u => u.id !== user.id))
   }
 
   const addErrors = errors => {
@@ -60,7 +60,7 @@ const App = () => {
         <Route path="/comics" element={ <ComicList comics = { comics } deleteComic={ deleteComic} />} />
         <Route path="/comics/new" element={ <ComicForm addComic={ addComic } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
-        <Route path="/comics/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
+        <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
       </Routes>
     </Router>
   );
