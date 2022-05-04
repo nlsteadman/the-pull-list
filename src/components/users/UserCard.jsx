@@ -1,6 +1,6 @@
 import React from 'react'
 import { baseUrl, headers } from '../../Globals';
-// import { Link } from 'react-router-dom';
+
 
 const UserCard = ({ user, deleteUser }) => {
 

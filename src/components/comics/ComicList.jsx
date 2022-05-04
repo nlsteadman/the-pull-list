@@ -1,18 +1,33 @@
 import React from 'react';
 import ComicCard from './ComicCard';
+import SearchComic from './SearchComic';
 
-const ComicList = ({comics, deleteComic}) => {
+const ComicList = ({ comics, deleteComic, search, onSearch }) => {
 
-    const comicCards = comics.map(comic => <ComicCard comic={ comic } key={ comic.id } deleteComic={ deleteComic }/>)
+    const filteredComics = comics.filter(comic => 
+      comic.genre.toLowerCase().includes(search.toLowerCase())
+    );
+
+    const comicCards = filteredComics.map((comic) => 
+      <ComicCard 
+        comic={ comic } 
+        key={ comic.id } 
+        deleteComic={ deleteComic }
+      />
+    )
+
   return (
-    <div id="comic-card">
-        <h1>Available Comic Series</h1>
-        <h3>Click image to see more information</h3>
-        <ul>
-            { comicCards }
-        </ul>
+    <div>
+      <SearchComic onSearch={ onSearch } />
+      <div id="comic-card">
+          <h1>Available Comic Series</h1>
+          <h2>Click image to see more information</h2>
+          <ul>
+              { comicCards }
+          </ul>
+      </div>
     </div>
   )
 }
 
-export default ComicList
+export default ComicList;
