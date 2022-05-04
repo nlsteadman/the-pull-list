@@ -14,11 +14,10 @@ const SearchComic = ({ onSearch }) => {
   return (
     <div>
         <form action="/search" method="get" onSubmit={ handleSubmit }>
-            <label htmlFor="search">Search Comic    </label>
+            <label htmlFor="search">Search Title/Publisher/Genre/Age Rating    </label>
             <input
                 id="search"
                 type="text"
-                placeholder="Comic Name"
                 value={ currentSearch }
                 onChange={ handleChange }
             />

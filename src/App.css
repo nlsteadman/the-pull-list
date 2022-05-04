@@ -27,13 +27,6 @@ h1 {
 }
 
 ul#nav {
-  /* list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  border: 1px solid #555;
-  display: inline; */
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -90,12 +83,6 @@ h3 {
 
 p {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-form {
-  margin-left: 50px;
-  margin-right: auto;
-  width: 8em;
 }
 
 form {
