@@ -45,7 +45,7 @@ const UserForm = ({ addUser, addErrors, clearErrors }) => {
     }
   return (
     <div>
-        <h1>Add New User</h1>
+        <h1>Create Customer</h1>
 
         <form id="create-user-form" onSubmit={ handleSubmit }>
             <div>

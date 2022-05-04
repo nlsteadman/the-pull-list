@@ -5,7 +5,7 @@ import SearchComic from './SearchComic';
 const ComicList = ({ comics, deleteComic, search, onSearch }) => {
 
     const filteredComics = comics.filter(comic => 
-      comic.genre.toLowerCase().includes(search.toLowerCase())
+      comic.name.toLowerCase().includes(search.toLowerCase())
     );
 
     const comicCards = filteredComics.map((comic) => 

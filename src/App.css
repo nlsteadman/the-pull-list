@@ -92,16 +92,16 @@ p {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-form#create-comic-form {
+form {
   margin-left: 50px;
   margin-right: auto;
   width: 8em;
 }
 
-form#create-user-form {
+form {
   margin-left: 50px;
   margin-right: auto;
-  width: 8em;
+  width: 40em;
 }
 
 #user-card {
