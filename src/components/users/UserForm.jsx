@@ -66,7 +66,7 @@ const UserForm = ({ addUser, addErrors, clearErrors }) => {
             </div><br/>
             <br />
             <input type="submit" value="Create Customer" />
-        </form>
+        </form><br/><br/>
     </div>
   )
 }

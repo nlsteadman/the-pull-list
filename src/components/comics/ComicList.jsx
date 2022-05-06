@@ -33,18 +33,18 @@ const ComicList = ({ comics, deleteComic, search, onSearch, onSort }) => {
 
   return (
     <div>
-      <label id="sort">
-        <input
-          type="checkbox"
-          name="sort"
-          onClick={ onSort }
-        />
-      Sort Alphabetically
-      </label>
-      <SearchComic onSearch={ onSearch } />
       <div id="comic-card">
           <h1>Available Comic Series</h1>
-          <h2>Click image to see more information</h2>
+          <h2>Click cover to see more information</h2>
+          <SearchComic onSearch={ onSearch } />
+          <label id="sort">
+            <input
+              type="checkbox"
+              name="sort"
+              onClick={ onSort }
+            />
+            Sort Alphabetically
+          </label>
           <ul>
               { comicCards }
           </ul>

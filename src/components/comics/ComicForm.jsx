@@ -86,7 +86,7 @@ const ComicForm = ({ addComic, addErrors, clearErrors }) => {
             </div>
             <br />
             <input type="submit" value="Create Comic" />
-        </form>
+        </form><br/><br/>
     </div>
   )
 }

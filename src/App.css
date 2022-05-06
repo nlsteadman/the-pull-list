@@ -72,7 +72,7 @@ h1 {
 }
 
 h2 {
-  margin-left: 10px;
+  margin-left: 50px;
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -119,6 +119,11 @@ form {
 }
 
 button {
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+
+input {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
 }
