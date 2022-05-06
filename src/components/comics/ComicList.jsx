@@ -33,7 +33,7 @@ const ComicList = ({ comics, deleteComic, search, onSearch, onSort }) => {
 
   return (
     <div>
-      <label>
+      <label id="sort">
         <input
           type="checkbox"
           name="sort"

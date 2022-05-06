@@ -89,11 +89,13 @@ form {
   margin-left: 50px;
   margin-right: auto;
   width: 40em;
+  font-size: 20px;
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #user-card {
   width: 450px;
-  height: 300px;
+  height: 330px;
   background: ghostwhite; 
   font-size: 20px; 
   border: 1px solid lightgray; 
@@ -106,6 +108,19 @@ form {
   outline: rgb(17, 215, 241) solid thick;
   transition: 0.75s;
   opacity: 1;
+}
+
+#sort {
+  margin-left: 50px;
+  margin-right: auto;
+  width: 40em;
+  font-size: 20px;
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
 }
 
 .App-logo {

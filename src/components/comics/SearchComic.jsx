@@ -11,6 +11,7 @@ const SearchComic = ({ onSearch }) => {
     const handleChange = e => {
         setCurrentSearch(e.target.value);
     }
+    
   return (
     <div>
         <form action="/search" method="get" onSubmit={ handleSubmit }>
