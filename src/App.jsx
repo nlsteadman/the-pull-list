@@ -9,7 +9,8 @@ import UserForm from "./components/users/UserForm";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { baseUrl } from './Globals';
 import ErrorList from './components/errors/ErrorList';
-// import UserCard from './components/users/UserCard';
+import Users from './components/users/Users';
+import Comics from './components/comics/Comics';
 
 const App = () => {
   const [comics, setComics] = useState([]);
@@ -81,6 +82,8 @@ const App = () => {
         <Route path="/comics/new" element={ <ComicForm addComic={ addComic } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
+        <Route path="/comics/:id" element={ <Users deleteUser={ deleteUser}/>} />
+        <Route path="/users/:id" element={ <Comics deleteComic={ deleteComic}/>} />
       </Routes>
     </Router>
   );

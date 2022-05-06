@@ -1,6 +1,6 @@
 import React from 'react'
 import { baseUrl, headers } from '../../Globals';
-
+import { Link } from 'react-router-dom';
 
 const UserCard = ({ user, deleteUser }) => {
 
@@ -22,6 +22,7 @@ const UserCard = ({ user, deleteUser }) => {
             <p>{ user.address }</p>
             <p>{ user.phone_number }</p>
             <p>{ user.email }</p>
+            { user.comics ? <p><Link to={`/users/${user.id}`}>Click here to see list of subscriptions</Link></p> : null }
             <button onClick={ handleDelete }>Delete</button>
         </div>
         <br/>

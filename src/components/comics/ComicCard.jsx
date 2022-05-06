@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { baseUrl, headers } from '../../Globals';
 import ComicInfo from "./ComicInfo";
-// import { useNavigate } from 'react-router-dom';
 
 const ComicCard = ({ comic, deleteComic }) => {
     const [visibleDetails, setVisibleDetails] = useState(false);
 
-    // const navigate = useNavigate();
 
     const handleClick = () => {
         setVisibleDetails(!visibleDetails)
     }
-
-    // const handleRedirect = () => {
-    //     navigate();
-    // }
 
     const handleDelete = () => {
         fetch(baseUrl + '/comics/' + comic.id, {
@@ -34,7 +29,7 @@ const ComicCard = ({ comic, deleteComic }) => {
             { visibleDetails ? <ComicInfo comic={ comic } /> : ""}
             <h2>{ comic.name }</h2>
             <p>{ comic.publisher }</p>
-            {/* <button onClick={ handleRedirect }>Title's Subscribers</button><br/> */}
+            { comic.users ? <p><Link to={`/comics/${comic.id}`}>Click here to see list of subscribers</Link></p> : null }
             <button onClick={ handleDelete }>Delete Title</button>
         </div>
         <br/>

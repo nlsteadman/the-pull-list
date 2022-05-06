@@ -4,7 +4,7 @@
 #comic-info {
   text-align: center;
   width: 320px;
-  height: 600px;
+  height: 630px;
   background: ghostwhite; 
   font-size: 20px; 
   border: 1px solid lightgray; 
@@ -93,7 +93,7 @@ form {
 
 #user-card {
   width: 450px;
-  height: 275px;
+  height: 300px;
   background: ghostwhite; 
   font-size: 20px; 
   border: 1px solid lightgray; 
