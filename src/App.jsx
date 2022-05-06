@@ -16,6 +16,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [errors, setErrors] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState(false);
 
   useEffect(() => {
     fetch(baseUrl + '/comics')
@@ -49,6 +50,19 @@ const App = () => {
     setSearch(newSearch)
   }
 
+  const handleSort = (e) => {
+    setSortBy(!sortBy)
+
+    if (e.target.checked) {
+      let sortedComics = comics.sort((a, b) => 
+        a.name.localeCompare(b.name)
+      )
+      setComics(sortedComics)
+    } else {
+      setComics(comics)
+    }
+  }
+
   const addErrors = errors => {
     setErrors(errors);
   }
@@ -63,11 +77,10 @@ const App = () => {
       <ErrorList errors={ errors } /> 
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="/comics" element={ <ComicList comics = { comics } deleteComic={ deleteComic} search={ search } onSearch={ handleSearch } />} />
+        <Route path="/comics" element={ <ComicList comics = { comics } deleteComic={ deleteComic} search={ search } onSearch={ handleSearch } onSort={ handleSort } />} />
         <Route path="/comics/new" element={ <ComicForm addComic={ addComic } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
-        {/* <Route path="/users/:id" element={ <UserCard/>} /> */}
       </Routes>
     </Router>
   );

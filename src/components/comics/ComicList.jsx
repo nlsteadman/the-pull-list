@@ -2,9 +2,10 @@ import React from 'react';
 import ComicCard from './ComicCard';
 import SearchComic from './SearchComic';
 
-const ComicList = ({ comics, deleteComic, search, onSearch }) => {
+const ComicList = ({ comics, deleteComic, search, onSearch, onSort }) => {
 
     const filteredComics = comics.filter(comic => {
+
       if (comic.name.toLowerCase().includes(search.toLowerCase())){
         return comic
       }
@@ -15,6 +16,9 @@ const ComicList = ({ comics, deleteComic, search, onSearch }) => {
         return comic
       }
       if (comic.publisher && comic.publisher.toLowerCase().includes(search.toLowerCase())){
+        return comic
+      }
+      else {
         return comic
       }
     });
@@ -29,6 +33,14 @@ const ComicList = ({ comics, deleteComic, search, onSearch }) => {
 
   return (
     <div>
+      <label>
+        <input
+          type="checkbox"
+          name="sort"
+          onClick={ onSort }
+        />
+      Sort Alphabetically
+      </label>
       <SearchComic onSearch={ onSearch } />
       <div id="comic-card">
           <h1>Available Comic Series</h1>
