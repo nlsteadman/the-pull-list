@@ -24,7 +24,17 @@ const Comics = ({ deleteComic }) => {
   return (
     <div>
         <h1>{user.name} Subscriptions</h1>
-        { comicCard }
+        <div id="subscription">
+            <div className="dropdown">
+                <button className="dropbtn">Add title to customer</button>
+                <div className="dropdown-content">
+                    <p>item 1</p>
+                    <p>item 2</p>
+                    <p>item 3</p>
+                </div>
+            </div><br/><br/>
+            { comicCard }
+        </div>
     </div>
   )
 }

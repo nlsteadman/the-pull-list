@@ -15,7 +15,7 @@ const UserForm = ({ addUser, addErrors, clearErrors }) => {
         return () => {
             clearErrors();
         };
-    }, [])
+    }, [clearErrors])
 
     const handleSubmit = e => {
         e.preventDefault();
