@@ -44,25 +44,6 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: rgb(17, 215, 241);}
 
-
-#comic-info {
-  text-align: center;
-  width: 320px;
-  height: 630px;
-  background: ghostwhite; 
-  font-size: 20px; 
-  border: 1px solid lightgray; 
-  display: inline;
-  background-repeat: no-repeat;
-  background-position: center 90%;
-  float: left;
-  margin: 2%;
-  padding: 5%;
-  outline: rgb(17, 215, 241) solid thick;
-  transition: 0.75s;
-  opacity: 1;
-}
-
 h1 {
   color: rgb(41, 241, 178);
   outline: rgb(17, 215, 241) dotted thick;
@@ -78,7 +59,7 @@ ul#nav {
   background-color: #333;
 }
 
-li a {
+#nav li a {
   display: block;
   color: rgb(41, 241, 178);
   padding: 8px 16px;
@@ -86,17 +67,17 @@ li a {
 }
 
 /* Change the link color on hover */
-li a:hover {
+#nav li a:hover {
   background-color: rgb(17, 215, 241);
   color: white;
 }
 
-li {
+#nav li {
   text-align: center;
   border-bottom: 1px solid #555;
 }
 
-li:last-child {
+#nav li:last-child {
   border-bottom: none;
 }
 
@@ -107,7 +88,7 @@ div.container {
   padding: 10px 20px;
 }
 
-li {
+#nav li {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -128,12 +109,38 @@ p {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-form {
+#create-comic-form {
   margin-left: 50px;
   margin-right: auto;
-  width: 40em;
+  width: 40px;
   font-size: 20px;
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#create-user-form {
+  margin-left: 50px;
+  margin-right: auto;
+  width: 40px;
+  font-size: 20px;
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+#comic-info {
+  text-align: center;
+  width: 350px;
+  height: 630px;
+  background: ghostwhite; 
+  font-size: 20px; 
+  border: 1px solid lightgray; 
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 5%;
+  outline: rgb(17, 215, 241) solid thick;
 }
 
 #user-card {
@@ -180,6 +187,14 @@ input {
   font-size: 30px;
   color:rgb(41, 241, 178);
   font-weight: 600;
+}
+
+#search {
+  margin-left: 50px;
+  width: 500px;
+  margin-right: auto;
+  font-size: 18px;
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .App-logo {

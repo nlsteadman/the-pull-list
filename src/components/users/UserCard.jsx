@@ -16,7 +16,7 @@ const UserCard = ({ user, deleteUser }) => {
     }
   return (
     <div>
-        <div key={ user.id } id="user-card">
+        <li key={ user.id } id="user-card">
             <h2>{ user.name }</h2>
             <h3>User ID: { user.id }</h3>
             <p>{ user.address }</p>
@@ -24,9 +24,7 @@ const UserCard = ({ user, deleteUser }) => {
             <p>{ user.email }</p>
             { user.comics ? <p><Link to={`/users/${user.id}`}>Click here to see list of subscriptions</Link></p> : null }
             <button onClick={ handleDelete }>Delete</button>
-        </div>
-        <br/>
-        <br/>
+        </li>
     </div>
   )
 }

@@ -24,16 +24,14 @@ const ComicCard = ({ comic, deleteComic }) => {
 
   return (
     <div>
-        <div key={ comic.id } id="comic-info">
+        <li key={ comic.id } id="comic-info">
             <img onClick={handleClick} src={ comic.image_url } alt={ comic.name } />
             { visibleDetails ? <ComicInfo comic={ comic } /> : ""}
             <h2>{ comic.name }</h2>
             <p>{ comic.publisher }</p>
             { comic.users ? <p><Link to={`/comics/${comic.id}`}>Click here to see list of subscribers</Link></p> : null }
             <button onClick={ handleDelete }>Delete Title</button>
-        </div>
-        <br/>
-        <br/>
+        </li>
     </div>
   )
 }
