@@ -45,7 +45,7 @@ const ComicList = ({ comics, deleteComic, search, onSearch, onSort }) => {
               onClick={ onSort }
             />
           </label>
-          <div class="table">
+          <div className="table">
             <ul id="list-container">
                 { comicCards }
             </ul>

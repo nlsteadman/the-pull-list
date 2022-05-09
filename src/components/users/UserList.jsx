@@ -16,4 +16,4 @@ const UserList = ({ users, deleteUser }) => {
   )
 }
 
-export default UserList
+export default UserList;

@@ -38,4 +38,4 @@ const Comics = ({ deleteComic }) => {
     </div>
   )
 }
-export default Comics
+export default Comics;
