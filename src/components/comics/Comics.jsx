@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { baseUrl } from '../../Globals';
 import { useParams } from 'react-router-dom';
 import ComicCard from './ComicCard';
+import SelectComic from './SelectComic';
 
 const Comics = ({ deleteComic }) => {
     const [user, setUser] = useState({ comics: [] });
+    const [comicOptions, setComicOptions] = useState([]);
     const { id } = useParams()
 
     useEffect(() => {
@@ -20,6 +22,18 @@ const Comics = ({ deleteComic }) => {
             deleteComic={ deleteComic }
         />
     })
+    useEffect(() => {
+        fetch(baseUrl + '/comics')
+            .then(r => r.json())
+            .then(data => setComicOptions(data))
+    }, [])
+
+    const comicSelect = comicOptions.map(comic => 
+        <SelectComic
+            comic={ comic }
+            key={ comic.id }
+        />
+        )
 
   return (
     <div>
@@ -28,11 +42,9 @@ const Comics = ({ deleteComic }) => {
             <div className="dropdown">
                 <button className="dropbtn">Add title to customer</button>
                 <div className="dropdown-content">
-                    <p>item 1</p>
-                    <p>item 2</p>
-                    <p>item 3</p>
+                    { comicSelect }
                 </div>
-            </div><br/><br/>
+            </div>
             { comicCard }
         </div>
     </div>

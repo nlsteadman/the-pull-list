@@ -14,6 +14,7 @@ const UserCard = ({ user, deleteUser }) => {
                 deleteUser(data);
             })
     }
+
   return (
     <div>
         <li key={ user.id } id="user-card">
