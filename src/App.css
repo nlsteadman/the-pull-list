@@ -159,8 +159,6 @@ p {
   margin: 2%;
   padding: 5%;
   outline: rgb(17, 215, 241) solid thick;
-  transition: 0.75s;
-  opacity: 1;
 }
 
 #sort {

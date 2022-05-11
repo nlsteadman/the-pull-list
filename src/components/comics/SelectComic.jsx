@@ -1,37 +1,16 @@
-import React, { useState } from 'react';
-import { headers } from '../../Globals';
-import { baseUrl } from '../../Globals';
+import React from 'react';
 
-const SelectComic = ({ comic }) => {
-    const [id, setId] = useState("");
-    const [comics, setComics] = useState([]);
-
-    const addComicOption = comic => {
-        setComics([...comics, comic]);
-      }
-
+const SelectComic = ({ comic, onChange }) => {
+    
     const handleClick = e => {
-        e.preventDefault();
-        const params = {
-            comic: {
-                comic_id: id
-            }
+        
         }
 
-        fetch(baseUrl + "/user_comics", {
-            method: "POST",
-            headers,
-            body: JSON.stringify(params)
-        })
-            .then(r => r.json())
-            .then(data => {
-                addComicOption(data);
-            })
-    }
+
   return (
-    <div onClick={ handleClick }>
+    <option onSelect={ handleClick } value={ comic.id }>
         { comic.name }
-    </div>
+    </option>
   )
 }
 
