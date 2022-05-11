@@ -4,7 +4,7 @@ import ComicCard from './ComicCard';
 import SelectComic from './SelectComic';
 import { baseUrl, headers } from '../../Globals';
 
-const Comics = ({ deleteComic }) => {
+const Comics = ({ deleteComic, addUserComic }) => {
     const [user, setUser] = useState({ comics: [] });
     const { id } = useParams()
     const [comics, setComics] = useState([]);
@@ -19,7 +19,7 @@ const Comics = ({ deleteComic }) => {
     const comicCard = user.comics.map(comic => {
         return <ComicCard 
             comic={ comic } 
-            key={ comic.id } 
+            key={ comic.id }
             deleteComic={ deleteComic }
         />
     })
@@ -37,25 +37,31 @@ const Comics = ({ deleteComic }) => {
         )
 
     const handleChange = (e) => {
-        const userObject = {comic_id: e.target.value, user_id: id }
-        
+        const userObject = {
+            user_comic: {
+                "quantity": "1", 
+                "user_id": id,
+                "comic_id": e.target.value
+                }
+            }
+
         fetch( baseUrl + "/user_comics", {
             method: "POST",
             headers,
-            body: JSON.stringify()
+            body: JSON.stringify(userObject)
         })
             .then(r => r.json())
             .then(data => {
-                setComics(userObject);
+                addUserComic(data);
             })
         }
+
   return (
     <div>
         <h1>{user.name} Subscriptions</h1>
         <div id="subscription">
             <div className="dropdown">
-                <button className="dropbtn">Add title to customer</button>
-                <select onChange={ handleChange } className="dropdown-content">
+                <select defaultValue="Add title to customer" className="dropbtn" onChange={ handleChange } >
                     { comicSelect }
                 </select>
             </div>
