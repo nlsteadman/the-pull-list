@@ -18,7 +18,6 @@ const App = () => {
   const [errors, setErrors] = useState([]);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState(false);
-  const [userComics, setUserComics] = useState([]);
 
   useEffect(() => {
     fetch(baseUrl + '/comics')
@@ -31,10 +30,6 @@ const App = () => {
     .then(r => r.json())
     .then(data => setUsers(data))
   }, [])
-
-  useEffect(() => {
-    fetch(baseUrl + '/user_comics')
-  })
 
   const addComic = comic => {
     setComics([...comics, comic]);
@@ -88,7 +83,7 @@ const App = () => {
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
-        <Route path="/users/:id" element={ <Comics userComics={ userComics } setUserComics />} />
+        <Route path="/users/:id" element={ <Comics />} />
       </Routes>
     </Router>
   );

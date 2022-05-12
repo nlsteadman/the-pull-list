@@ -4,10 +4,17 @@ import UserComicCard from './UserComicCard';
 import SelectComic from './SelectComic';
 import { baseUrl, headers } from '../../Globals';
 
-const Comics = ({ userComics, setUserComics }) => {
+const Comics = () => {
     const [user, setUser] = useState({ comics: [] });
     const { id } = useParams()
     const [comics, setComics] = useState([]);
+    const [userComics, setUserComics] = useState([]);
+
+    useEffect(() => {
+        fetch(baseUrl + '/user_comics')
+            .then(r => r.json())
+            .then(data => setUserComics(data))
+      }, [])
 
     useEffect(() => {
         fetch(baseUrl + '/users/' + id)
@@ -17,12 +24,10 @@ const Comics = ({ userComics, setUserComics }) => {
 
     const comicCard = user.comics.map(comic => {
         return <UserComicCard 
-            user={ user }
             comic={ comic }
             userComics={ userComics }
             setUserComics={ setUserComics }
             key={ comic.id }
-            setUser={ setUser }
         />
     })
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { baseUrl, headers } from '../../Globals';
 import ComicInfo from "./ComicInfo";
 
-const UserComicCard = ({ comic, userComics, setUserComics, setUser }) => {
+const UserComicCard = ({ comic, userComics, setUserComics }) => {
     const [visibleDetails, setVisibleDetails] = useState(false);
 
 
@@ -11,16 +11,14 @@ const UserComicCard = ({ comic, userComics, setUserComics, setUser }) => {
     }
 
     const handleDelete = () => {
-        debugger
         fetch(baseUrl + '/user_comics/' + userComics.id, {
             method: "DELETE",
             headers
         })
             .then(r => r.json())
             .then(data => {
-                debugger
-                console.log(data)
-                setUser(userComics.filter(u => u.id !== userComics.id))
+                console.log(userComics.id)
+                setUserComics(userComics.filter(u => u.id !== userComics.id))
             })
     }
 
