@@ -11,12 +11,14 @@ const UserComicCard = ({ comic, userComics, setUserComics, setUser }) => {
     }
 
     const handleDelete = () => {
+        debugger
         fetch(baseUrl + '/user_comics/' + userComics.id, {
             method: "DELETE",
             headers
         })
             .then(r => r.json())
             .then(data => {
+                debugger
                 console.log(data)
                 setUser(userComics.filter(u => u.id !== userComics.id))
             })

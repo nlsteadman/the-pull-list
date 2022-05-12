@@ -32,6 +32,10 @@ const App = () => {
     .then(data => setUsers(data))
   }, [])
 
+  useEffect(() => {
+    fetch(baseUrl + '/user_comics')
+  })
+
   const addComic = comic => {
     setComics([...comics, comic]);
   }
