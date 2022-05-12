@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import ComicCard from './ComicCard';
+import UserComicCard from './UserComicCard';
 import SelectComic from './SelectComic';
 import { baseUrl, headers } from '../../Globals';
 
-const Comics = ({ deleteComic, addUserComic }) => {
+const Comics = ({ userComics, setUserComics, deleteUserComic, addUserComic }) => {
     const [user, setUser] = useState({ comics: [] });
     const { id } = useParams()
     const [comics, setComics] = useState([]);
-
 
     useEffect(() => {
         fetch(baseUrl + '/users/' + id)
@@ -17,24 +16,13 @@ const Comics = ({ deleteComic, addUserComic }) => {
     }, [id])
 
     const comicCard = user.comics.map(comic => {
-        return <ComicCard 
-            comic={ comic } 
+        return <UserComicCard 
+            comic={ comic }
+            userComics={ userComics } 
             key={ comic.id }
-            deleteComic={ deleteComic }
+            deleteUserComic={ deleteUserComic }
         />
     })
-    useEffect(() => {
-        fetch(baseUrl + '/comics')
-            .then(r => r.json())
-            .then(data => setComics(data))
-    }, [])
-
-    const comicSelect = comics.map(comic => 
-        <SelectComic
-            comic={ comic }
-            key={ comic.id }
-        />
-        )
 
     const handleChange = (e) => {
         const userObject = {
@@ -53,8 +41,23 @@ const Comics = ({ deleteComic, addUserComic }) => {
             .then(r => r.json())
             .then(data => {
                 addUserComic(data);
+                setUser();
             })
         }
+
+    useEffect(() => {
+        fetch(baseUrl + '/comics')
+            .then(r => r.json())
+            .then(data => setComics(data))
+    }, [])
+
+    const comicSelect = comics.map(comic => 
+        <SelectComic
+            comic={ comic }
+            key={ comic.id }
+        />
+        )
+
 
   return (
     <div>
