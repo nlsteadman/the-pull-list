@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { baseUrl, headers } from '../../Globals';
 import ComicInfo from "./ComicInfo";
 
-const UserComicCard = ({ comic, userComics, deleteUserComic }) => {
+const UserComicCard = ({ comic, userComics, setUserComics, setUser }) => {
     const [visibleDetails, setVisibleDetails] = useState(false);
 
 
@@ -17,7 +17,8 @@ const UserComicCard = ({ comic, userComics, deleteUserComic }) => {
         })
             .then(r => r.json())
             .then(data => {
-                deleteUserComic(data);
+                console.log(data)
+                setUser(userComics.filter(u => u.id !== userComics.id))
             })
     }
 

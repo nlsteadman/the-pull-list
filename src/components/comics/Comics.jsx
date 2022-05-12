@@ -4,7 +4,7 @@ import UserComicCard from './UserComicCard';
 import SelectComic from './SelectComic';
 import { baseUrl, headers } from '../../Globals';
 
-const Comics = ({ userComics, setUserComics, deleteUserComic, addUserComic }) => {
+const Comics = ({ userComics, setUserComics }) => {
     const [user, setUser] = useState({ comics: [] });
     const { id } = useParams()
     const [comics, setComics] = useState([]);
@@ -18,9 +18,10 @@ const Comics = ({ userComics, setUserComics, deleteUserComic, addUserComic }) =>
     const comicCard = user.comics.map(comic => {
         return <UserComicCard 
             comic={ comic }
-            userComics={ userComics } 
+            userComics={ userComics }
+            setUserComics={ setUserComics }
             key={ comic.id }
-            deleteUserComic={ deleteUserComic }
+            setUser={ setUser }
         />
     })
 
@@ -40,8 +41,10 @@ const Comics = ({ userComics, setUserComics, deleteUserComic, addUserComic }) =>
         })
             .then(r => r.json())
             .then(data => {
-                addUserComic(data);
-                setUser();
+                setUser({
+                    ...user,
+                    comics: [data.comic, ...user.comics]
+                })
             })
         }
 

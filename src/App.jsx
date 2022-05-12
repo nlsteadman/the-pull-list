@@ -48,14 +48,6 @@ const App = () => {
     setUsers(users.filter(u => u.id !== user.id))
   }
 
-  const addUserComic = userComic => {
-    setUserComics([...userComics, userComic]);
-  }
-
-  const deleteUserComic = userComic => {
-    setUserComics(userComics.filter(u => u.id !== userComic.id))
-  }
-
   const handleSearch = (newSearch) => {
     setSearch(newSearch)
   }
@@ -92,7 +84,7 @@ const App = () => {
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
-        <Route path="/users/:id" element={ <Comics setUserComics={ setUserComics } userComics={ userComics } addUserComic={ addUserComic } deleteUserComic={ deleteUserComic}/>} />
+        <Route path="/users/:id" element={ <Comics userComics={ userComics } setUserComics />} />
       </Routes>
     </Router>
   );
