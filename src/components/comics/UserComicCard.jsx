@@ -17,7 +17,6 @@ const UserComicCard = ({ comic, userComics, setUserComics }) => {
         })
             .then(r => r.json())
             .then(data => {
-                console.log(userComics.id)
                 setUserComics(userComics.filter(u => u.id !== userComics.id))
             })
     }
