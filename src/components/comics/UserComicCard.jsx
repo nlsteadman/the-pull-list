@@ -23,7 +23,7 @@ const UserComicCard = ({ comic, userComics, setUserComics }) => {
 
   return (
     <div>
-        <li key={ comic.id } id="comic-info">
+        <li key={ userComics.id } id="comic-info">
             <img onClick={handleClick} src={ comic.image_url } alt={ comic.name } />
             { visibleDetails ? <ComicInfo comic={ comic } /> : ""}
             <h2>{ comic.name }</h2>
