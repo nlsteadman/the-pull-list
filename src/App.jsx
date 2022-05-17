@@ -19,7 +19,6 @@ const App = () => {
   const [errors, setErrors] = useState([]);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     fetch(baseUrl + '/comics')
@@ -57,17 +56,6 @@ const App = () => {
     setSortBy(!sortBy)
   }
 
-  const handleChange = (value) => {
-    setSelectedUser({ ...selectedUser, value})
-  }
-
-  const handleUpdate = (editedUser) => {
-    const editedUsers = users.map(user => 
-      user.id === editedUser.id ? editedUser : user)
-      setSelectedUser(editedUser)
-      setUsers(editedUsers)
-  }
-
   const addErrors = errors => {
     setErrors(errors);
   }
@@ -91,7 +79,7 @@ const App = () => {
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
         <Route path="/users/:id" element={ <Comics />} />
-        <Route path="/users/update/:id" element={ <UserUpdate selectedUser={ selectedUser } onChange={ handleChange } onEdit={ handleUpdate }/>} />
+        <Route path="/users/update/:id" element={ <UserUpdate />} />
       </Routes>
     </Router>
   );

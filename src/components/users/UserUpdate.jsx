@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { baseUrl, headers } from '../../Globals';
 
-const UserUpdate = (selectedUser, onChange, onEdit ) => {
+const UserUpdate = () => {
     const { id } = useParams();
     const [user, setUser] = useState([]);
 
@@ -11,10 +11,6 @@ const UserUpdate = (selectedUser, onChange, onEdit ) => {
         .then(r => r.json())
         .then(data => setUser(data))
       }, [id]);
-
-    const handleChange = e => {
-        onChange(e.target.value)
-    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,13 +23,15 @@ const UserUpdate = (selectedUser, onChange, onEdit ) => {
             }
         }
 
+        let editedUsers = user.find(editedUser => user.id === editedUser.id ? editedUser : user)
+
         fetch(baseUrl + "/users/" + id, {
             method: "PATCH",
             headers,
             body: JSON.stringify(params)
         })
             .then(r => r.json())
-            .then(onEdit)
+            .then(editedUsers)
     }
 
   return (
@@ -43,19 +41,19 @@ const UserUpdate = (selectedUser, onChange, onEdit ) => {
         <form id="create-user-form" onSubmit={ handleSubmit }>
             <div>
                 <label htmlFor="name">Name: </label>
-                <input type="text" name="name" id="name" value={user.name} onChange={ handleChange } />
+                <input type="text" name="name" id="name" value={user.name} onChange={ e => setUser(e.target.value) } />
             </div><br/>
             <div>
                 <label htmlFor="address">Address: </label><br />
-                <textarea name="address" id="address" cols="30" rows="10" value={ user.address } onChange={ handleChange }></textarea>
+                <textarea name="address" id="address" cols="30" rows="10" value={ user.address } onChange={ e => setUser(e.target.value) }></textarea>
             </div><br/>
             <div>
                 <label htmlFor="phone_number">Phone Number: </label>
-                <input type="text" name="phone_number" id="phone_number" value={ user.phone_number } onChange={ handleChange } />
+                <input type="text" name="phone_number" id="phone_number" value={ user.phone_number } onChange={ e => setUser(e.target.value) } />
             </div><br/>
             <div>
                 <label htmlFor="email">Email: </label>
-                <input type="email" name="email" id="email" value={ user.email } onChange={ handleChange } />
+                <input type="email" name="email" id="email" value={ user.email } onChange={ e => setUser(e.target.value) } />
             </div><br/>
             <br />
             <input type="submit" value="Edit Customer" />
