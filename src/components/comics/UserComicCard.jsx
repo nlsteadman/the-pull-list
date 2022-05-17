@@ -24,9 +24,7 @@ const UserComicCard = ({ comic, user, setUser, userComics, setUserComics }) => {
             headers
         })
             .then(r => r.json())
-            .then(data => {
-                setUser(updatedComics)
-            })
+            .then(updatedComics)
     }
 
   return (

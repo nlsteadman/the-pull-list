@@ -11,6 +11,7 @@ import { baseUrl } from './Globals';
 import ErrorList from './components/errors/ErrorList';
 import Users from './components/users/Users';
 import Comics from './components/comics/Comics';
+import UserUpdate from './components/users/UserUpdate';
 
 const App = () => {
   const [comics, setComics] = useState([]);
@@ -18,6 +19,7 @@ const App = () => {
   const [errors, setErrors] = useState([]);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     fetch(baseUrl + '/comics')
@@ -64,6 +66,17 @@ const App = () => {
     }
   }
 
+  const handleChange = (name, value) => {
+    setSelectedUser({ ...selectedUser, [name]: value})
+  }
+
+  const handleUpdate = (editedUser) => {
+    const editedUsers = users.map(user => 
+      user.id === editedUser.id ? editedUser : user)
+      setSelectedUser(editedUser)
+      setUsers(editedUsers)
+  }
+
   const addErrors = errors => {
     setErrors(errors);
   }
@@ -84,6 +97,7 @@ const App = () => {
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
         <Route path="/users/:id" element={ <Comics />} />
+        <Route path="/users/update" element={ <UserUpdate user={ selectedUser } onChange={ handleChange } onEdit={ handleUpdate }/>} />
       </Routes>
     </Router>
   );
