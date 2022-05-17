@@ -10,20 +10,20 @@ const UserComicCard = ({ comic, userComics, setUserComics }) => {
         setVisibleDetails(!visibleDetails)
     }
 
-    const handleDelete = () => {
-        fetch(baseUrl + '/user_comics/' + userComics.id, {
+    const handleDelete = (userComic) => {
+        fetch(baseUrl + '/user_comics/' + userComic.id, {
             method: "DELETE",
             headers
         })
             .then(r => r.json())
             .then(data => {
-                setUserComics(userComics.filter(u => u.id !== userComics.id))
+                setUserComics(userComics.filter(u => u.id !== userComic.id))
             })
     }
 
   return (
     <div>
-        <li key={ userComics.id } id="comic-info">
+        <li key={ userComics.id } id="comic-info" value={ userComics.id }>
             <img onClick={handleClick} src={ comic.image_url } alt={ comic.name } />
             { visibleDetails ? <ComicInfo comic={ comic } /> : ""}
             <h2>{ comic.name }</h2>
