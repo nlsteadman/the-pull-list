@@ -27,7 +27,7 @@ const Comics = () => {
             comic={ comic }
             userComics={ userComics }
             setUserComics={ setUserComics }
-            key={ userComics.id }
+            key={ comic.id }
         />
     })
 
