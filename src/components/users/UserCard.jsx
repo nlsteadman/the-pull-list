@@ -1,8 +1,11 @@
 import React from 'react'
 import { baseUrl, headers } from '../../Globals';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const UserCard = ({ user, deleteUser }) => {
+
+    const navigate = useNavigate();
 
     const handleDelete = () => {
         fetch(baseUrl + '/users/' + user.id, {
@@ -15,6 +18,10 @@ const UserCard = ({ user, deleteUser }) => {
             })
     }
 
+    const handleNavigate = () => {
+        navigate(`/users/update/${user.id}`);
+    }
+
   return (
     <div>
         <li key={ user.id } id="user-card">
@@ -24,7 +31,8 @@ const UserCard = ({ user, deleteUser }) => {
             <p>{ user.phone_number }</p>
             <p>{ user.email }</p>
             { user.comics ? <p><Link to={`/users/${user.id}`}>Click here to see list of subscriptions</Link></p> : null }
-            <button onClick={ handleDelete }>Delete</button>
+            <button onClick={ handleDelete }>Delete Customer</button>
+            <button onClick={ handleNavigate }>Update Customer</button>
         </li>
     </div>
   )

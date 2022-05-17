@@ -53,21 +53,12 @@ const App = () => {
     setSearch(newSearch)
   }
 
-  const handleSort = (e) => {
+  const handleSort = () => {
     setSortBy(!sortBy)
-
-    if (e.target.checked) {
-      let sortedComics = comics.sort((a, b) => 
-        a.name.localeCompare(b.name)
-      )
-      setComics(sortedComics)
-    } else {
-      setComics(comics)
-    }
   }
 
-  const handleChange = (name, value) => {
-    setSelectedUser({ ...selectedUser, [name]: value})
+  const handleChange = (value) => {
+    setSelectedUser({ ...selectedUser, value})
   }
 
   const handleUpdate = (editedUser) => {
@@ -85,19 +76,22 @@ const App = () => {
     setErrors([]);
   }
 
+  const displayedComics = sortBy ? [...comics].sort((a, b) => 
+  a.name.localeCompare(b.name)) : comics
+
   return (
     <Router>
       <Navbar />
       <ErrorList errors={ errors } /> 
       <Routes>
         <Route path="/" element={ <Home />} />
-        <Route path="/comics" element={ <ComicList comics = { comics } deleteComic={ deleteComic} search={ search } onSearch={ handleSearch } onSort={ handleSort } />} />
+        <Route path="/comics" element={ <ComicList comics = { displayedComics } deleteComic={ deleteComic} search={ search } onSearch={ handleSearch } onSort={ handleSort } />} />
         <Route path="/comics/new" element={ <ComicForm addComic={ addComic } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/users" element={ <UserList users={ users } deleteUser={ deleteUser } />} />
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
         <Route path="/users/:id" element={ <Comics />} />
-        <Route path="/users/update" element={ <UserUpdate user={ selectedUser } onChange={ handleChange } onEdit={ handleUpdate }/>} />
+        <Route path="/users/update/:id" element={ <UserUpdate selectedUser={ selectedUser } onChange={ handleChange } onEdit={ handleUpdate }/>} />
       </Routes>
     </Router>
   );

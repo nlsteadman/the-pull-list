@@ -72,10 +72,11 @@ const Comics = () => {
 
   return (
     <div>
-        <h1>{user.name} Subscriptions</h1>
+        <h1>{user.name}'s Subscriptions</h1>
         <div id="subscription">
             <div className="dropdown">
                 <select defaultValue="Add title to customer" className="dropbtn" onChange={ handleChange } >
+                    <option>Add a title</option>
                     { comicSelect }
                 </select>
             </div>
