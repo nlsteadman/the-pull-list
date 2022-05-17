@@ -25,6 +25,8 @@ const Comics = () => {
     const comicCard = user.comics.map(comic => {
         return <UserComicCard 
             comic={ comic }
+            user={ user }
+            setUser={ setUser }
             userComics={ userComics }
             setUserComics={ setUserComics }
             key={ comic.id }

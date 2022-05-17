@@ -2,25 +2,30 @@ import React, { useState } from 'react'
 import { baseUrl, headers } from '../../Globals';
 import ComicInfo from "./ComicInfo";
 
-const UserComicCard = ({ comic, userComics, setUserComics }) => {
+const UserComicCard = ({ comic, user, setUser, userComics, setUserComics }) => {
     const [visibleDetails, setVisibleDetails] = useState(false);
 
 
     const handleClick = () => {
         setVisibleDetails(!visibleDetails)
     }
-    const deleteId = userComics.find(userComic => {
-        e.target.value === userComic.id
-    })
+    
 
     const handleDelete = () => {
-        fetch(baseUrl + '/user_comics/' + deleteId, {
+        let deleteUserComic = userComics.find(userComic => {
+            return userComic.comic.id === comic.id && userComic.user.id === user.id
+        })
+
+        let updatedComics = user.comics.filter(comic => comic.id !== deleteUserComic.comic.id)
+            setUser({...user, comics: updatedComics})
+
+        fetch(baseUrl + '/user_comics/' + deleteUserComic.id, {
             method: "DELETE",
             headers
         })
             .then(r => r.json())
             .then(data => {
-                setUserComics(userComics.filter(userComic => userComic.id !== userComics.id))
+                setUser(updatedComics)
             })
     }
 
