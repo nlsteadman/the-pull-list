@@ -112,6 +112,13 @@ p {
   font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#home li{
+  font-size: 30px;
+  font-family: 'Copperplate', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 50px;
+  list-style-image: url('/Users/endor/pull-list/frontend/public/milfal.png');
+}
+
 #create-comic-form {
   margin-left: 50px;
   margin-right: auto;
