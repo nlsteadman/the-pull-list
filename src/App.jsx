@@ -56,6 +56,10 @@ const App = () => {
     setSortBy(!sortBy)
   }
 
+  const handleUpdate = user => {
+    setUsers(users.map(u => u.id === user.id ? user : u))
+  }
+
   const addErrors = errors => {
     setErrors(errors);
   }
@@ -79,7 +83,7 @@ const App = () => {
         <Route path="/users/new" element={ <UserForm addUser={ addUser } addErrors={ addErrors } clearErrors={ clearErrors } />} />
         <Route path="/comics/:id" element={ <Users deleteComic={ deleteComic}/>} />
         <Route path="/users/:id" element={ <Comics />} />
-        <Route path="/users/update/:id" element={ <UserUpdate />} />
+        <Route path="/users/update/:id" element={ <UserUpdate handleUpdate={ handleUpdate }/>} />
       </Routes>
     </Router>
   );
