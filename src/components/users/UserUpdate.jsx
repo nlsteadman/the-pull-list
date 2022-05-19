@@ -35,7 +35,7 @@ const UserUpdate = () => {
             body: JSON.stringify(params)
         })
             .then(r => r.json())
-            .then((data) => setUser(data))
+            .then((data) => setUser({...user, user: data}))
             navigate("/users");
     }
 
@@ -46,19 +46,19 @@ const UserUpdate = () => {
         <form id="create-user-form" onSubmit={ handleSubmit }>
             <div>
                 <label htmlFor="name">Name: </label>
-                <input type="text" name="name" id="name" value={name} onChange={ e => setName(e.target.value) } />
+                <input type="text" name="name" id="name" placeholder={ user.name } value={name} onChange={ e => setName(e.target.value) } />
             </div><br/>
             <div>
                 <label htmlFor="address">Address: </label><br />
-                <textarea name="address" id="address" cols="30" rows="10" value={ address } onChange={ e => setAddress(e.target.value) }></textarea>
+                <textarea name="address" id="address" cols="30" rows="10" placeholder={ user.address } value={ address } onChange={ e => setAddress(e.target.value) }></textarea>
             </div><br/>
             <div>
                 <label htmlFor="phone_number">Phone Number: </label>
-                <input type="text" name="phone_number" id="phone_number" value={ phone } onChange={ e => setPhone(e.target.value) } />
+                <input type="text" name="phone_number" id="phone_number" placeholder={ user.phone_number } value={ phone } onChange={ e => setPhone(e.target.value) } />
             </div><br/>
             <div>
                 <label htmlFor="email">Email: </label>
-                <input type="email" name="email" id="email" value={ email } onChange={ e => setEmail(e.target.value) } />
+                <input type="email" name="email" id="email" placeholder={ user.email } value={ email } onChange={ e => setEmail(e.target.value) } />
             </div><br/>
             <br />
             <input type="submit" value="Edit Customer" />
