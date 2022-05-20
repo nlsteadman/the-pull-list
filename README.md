@@ -1,5 +1,7 @@
 # The Pull List Frontend
 This is a frontend application for a comic book pull list app. The objective of this project is to showcase work that I did for Flatiron School.
+## Back End Repo
+- [Backend Repo](https://github.com/nlsteadman/pull-list)
 
 ### Requirements
 * node version 17.4.0
@@ -7,10 +9,9 @@ This is a frontend application for a comic book pull list app. The objective of 
 
 
 ### How to use
-Fork and clone
-Run npm install
-Run npm start
-Follow directions for backend []
+-Fork and clone
+-Run npm install
+-Run npm start
 
 ### Licensing
 Copyright <2022> <COPYRIGHT HOLDER>
@@ -20,5 +21,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-### Contributing
